@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>構造計算マスターβ版</title>
+</head>
+<body>
+    <div class="wrapper">
+    <h1>単純梁</h1>
+    <p>※機能制限中※</p>
+    <p>現在一部の機能を制限させていただいております。<br>計算機は以下の条件下のみで機能致しますのでご注意ください。</p>
+    <ul>
+        <li>単純梁であること</li>
+        <li>集中荷重のみであること(10本まで)</li>
+    </ul>
+    <p>また、機能実装のための実験ページのため、レスポンシブデザイン等には対応しておりません。<br>あらかじめご了承ください。</p>
+
+    <h2 id="target1">1.梁の基本情報を入力</h2>
+
+    <p id="length_sentence">梁のながさ:
+    <input type="tel" name="length" id="length" maxlength="10"> m</p>
+    <p class="alert_length" id="alert_length">梁の長さを入力してください。</p>
+
+    <p>集中荷重の数
+        <select name="point_num" id="point_num">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </p>
+
+    <button id="add_point_num">決定</button>
+    <button class="restart" id="restart">最初からやり直す</button>
+
+    <div class="height_space"></div>
+
+    <h2 id="target2">2.集中荷重の情報を入力</h2>
+
+    <div class="point_wrap">
+        <div class="form point1set" id="point1set">
+            <h3 class="tug">集中荷重1</h3>
+            <p>大きさ:
+            <input type="tel" maxlength="10" id="point1_power"> kN</p>
+
+            <p>向き:
+                <select name="point1" id="point1">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+
+            <p>位置:
+            <input type="tel" id="point1_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+        <div class="form point2set" id="point2set">
+            <h3 class="tug">集中荷重2</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point2_power"> kN</p>
+        
+            <p>向き:
+                <select name="point2" id="point2">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point2_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+        <div class="form point3set" id="point3set">
+            <h3 class="tug">集中荷重3</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point3_power"> kN</p>
+        
+            <p>向き:
+                <select name="point3" id="point3">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point3_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+        <div class="form point4set" id="point4set">
+            <h3 class="tug">集中荷重4</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point4_power"> kN</p>
+        
+            <p>向き:
+                <select name="point4" id="point4">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point4_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+        
+        <div class="form point5set" id="point5set">
+            <h3 class="tug">集中荷重5</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point5_power"> kN</p>
+        
+            <p>向き:
+                <select name="point5" id="point5">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point5_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+        
+        <div class="form point6set" id="point6set">
+            <h3 class="tug">集中荷重6</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point6_power"> kN</p>
+        
+            <p>向き:
+                <select name="point6" id="point6">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point6_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+        <div class="form point7set" id="point7set">
+            <h3 class="tug">集中荷重7</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point7_power"> kN</p>
+        
+            <p>向き:
+                <select name="point7" id="point7">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point7_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+        
+        <div class="form point8set" id="point8set">
+            <h3 class="tug">集中荷重8</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point8_power"> kN</p>
+        
+            <p>向き:
+                <select name="point8" id="point8">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point8_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+        
+        <div class="form point9set" id="point9set">
+            <h3 class="tug">集中荷重9</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point9_power"> kN</p>
+        
+            <p>向き:
+                <select name="point9" id="point9">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point9_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+        <div class="form point10set" id="point10set">
+            <h3 class="tug">集中荷重10</h3>
+            <p>大きさ:
+                <input type="tel" maxlength="10" id="point10_power"> kN</p>
+        
+            <p>向き:
+                <select name="point10" id="point10">
+                    <option value="0">下向き</option>
+                    <option value="1">上向き</option>
+                </select>
+            </p>
+        
+            <p>位置:
+                <input type="tel" id="point10_position"> m<br>(梁の左端からの距離)</p>
+        </div>
+
+    <div class="clear"></div>
+    <button class="submit" id="submit">計算実行</button>
+
+    </div>
+
+    <h2 id="target3">3.計算結果</h2>
+    <div class="result">
+        <p>左支点反力Ra: <span class="result_num" id="ra"></span> kN</p>
+        <p>右支点反力Rb: <span class="result_num" id="rb"></span> kN</p>
+    </div>
+
+    <script>
+        var add_point_num = document.getElementById('add_point_num')
+        add_point_num.addEventListener('click',function(){
+            var length_sentence = document.getElementById('length_sentence');
+            var length = document.getElementById('length').value;
+            var alert_length = document.getElementById('alert_length');
+            try{
+                if(length == ""){
+                    alert_length.style.display = 'inline';
+                    length_sentence.style.display = 'inline';
+                    throw new Error('終了します');
+                }else{
+                    alert_length.style.display = 'none';
+                    length_sentence.style.display = 'block';
+                }
+            }catch(e){
+                alert(wahaha);
+            }
+            var point_num = document.getElementById('point_num').value;
+
+            for(i=1; i<=point_num; i++){
+                var point_set = "point" + i + "set";
+                var print = document.getElementById(point_set);
+                print.style.display = 'block';
+            };
+        add_point_num.style.display = 'none';
+
+        var restart = document.getElementById('restart');
+        restart.style.display = 'inline';
+
+        var submit = document.getElementById('submit');
+        submit.style.display = 'block';
+
+        restart.addEventListener('click',function(){
+            location.reload();
+        })
+        var length = document.querySelector('input[name="length"]');
+        length.disabled = true;
+        var point_num = document.querySelector('select[name="point_num"]');
+        point_num.disabled = true;
+
+        var element = document.getElementById('target2');
+        var rect = element.getBoundingClientRect();
+        var position = rect.top;
+        scrollTo(0,position);
+
+        })
+
+        var submit = document.getElementById('submit');
+        submit.addEventListener('click',function(){
+            submit.style.display = 'none';
+        })
+
+
+        var point_list = [];
+        var moment_list = [];
+
+        var submit = document.getElementById('submit');
+        submit.addEventListener('click', function () {
+            var point_num = document.getElementById('point_num').value;
+
+            for (i = 1; i <= point_num; i++) {
+                var point_power = "point" + i + "_power";
+                var point = document.getElementById(point_power).value;
+
+                var point_p = "point" + i;
+                var direction = document.getElementById(point_p).value;
+
+                if(direction == 0){
+                    point_list.push(point);
+                }else{
+                    point *= (-1);
+                    point_list.push(point);
+                }
+
+                var point_position = "point" + i + "_position";
+                var position = document.getElementById(point_position).value;
+                var moment = point * position;
+                moment_list.push(moment);
+                }
+
+            var point_l = point_list.length;
+
+            total_point = 0;
+            total_moment = 0;
+
+            var length = document.getElementById('length').value;
+
+            for (j = 0; j < point_l; j++) {
+                var now_point = Number(point_list[j]);
+                total_point += now_point;
+                
+                var now_moment = Number(moment_list[j]);
+                total_moment += now_moment;
+            }
+
+            var rb = Math.round((total_moment / length)*100)/100;
+            var ra = Math.round((total_point - rb)*100)/100;
+
+
+            document.getElementById('ra').innerHTML = ra;
+            document.getElementById('rb').innerHTML = rb;
+})
+
+        
+
+// 計算は上、右、右回りが正と定義。モーメント基準点は左端。
+    </script>
+
+
+
+
+
+    </div>
+</body>
+</html>
